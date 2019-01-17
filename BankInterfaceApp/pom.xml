@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>za.co.pps</groupId>
+  <artifactId>BankInterfaceApp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>BankInterfaceApp</name>
+  <url>http://maven.apache.org</url>
+  
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+  	<artifactId>spring-boot-starter-parent</artifactId>
+  	<version>1.5.6.RELEASE</version>
+  </parent>
+ 
+   <developers>
+    <developer>
+      <name>Sonwabo Singatha</name>
+      <organization>Interface33</organization>
+      <email>s.singatha@gmail.com</email>
+    </developer>
+  </developers>
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <spring-boot-version>1.5.6.RELEASE</spring-boot-version>
+     <hsqldb.version>2.3.5</hsqldb.version>  
+     <mysql-version>5.1.43</mysql-version>
+     <guava-version>18.0</guava-version> 
+     <spring-context>4.2.4.REALEASE</spring-context>
+     <mssql-version>4.0</mssql-version> 
+     <jtds-version>1.2.7</jtds-version>
+     <common-utils-version>3.0</common-utils-version>
+     <common-io-uitils-version>2.5</common-io-uitils-version>
+     <java-ee-version>7.0</java-ee-version>
+     <joda-time>2.9.9</joda-time>
+     <jsch-version>0.1.54</jsch-version>
+     <aspectj>1.8.6</aspectj>
+  </properties> 
+  
+   <dependencyManagement>
+    <dependencies>
+
+  		<dependency>
+      		<groupId>org.springframework</groupId>
+  			<artifactId>spring-context-support</artifactId>
+  			<version>4.3.11.RELEASE</version>
+       </dependency>
+   
+       <dependency>
+      		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-web</artifactId>
+  			 
+  			  
+  			 <exclusions>  
+			 	<exclusion>
+                    	<groupId>org.springframework.boot</groupId>
+                    	<artifactId>spring-boot-starter-tomcat</artifactId>
+             	</exclusion>
+  		  	</exclusions>
+  		      
+
+  		  	<version>${spring-boot-version}</version>
+       </dependency>
+  
+   	   <dependency>
+      		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-data-jpa</artifactId>
+    		<exclusions>
+  				<exclusion>
+              		<groupId>javax.transaction</groupId>
+              		<artifactId>javax.transaction-api</artifactId>
+          		</exclusion>
+  			</exclusions>
+  			<version>${spring-boot-version}</version>
+    	</dependency>
+    
+  
+    	<dependency>
+            <groupId>org.jboss.spec.javax.transaction</groupId>
+            <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+            <version>1.0.0.Final</version>
+    	</dependency>
+    
+    	<dependency>
+    		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-actuator</artifactId>
+  			<version>${spring-boot-version}</version>
+    	</dependency>
+    
+     	<dependency>
+    		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-security</artifactId>
+  		  	<version>${spring-boot-version}</version>
+    	</dependency>
+    
+      	<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-tomcat</artifactId>
+        	<version>${spring-boot-version}</version>
+    	</dependency>
+    	
+    	<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-integration</artifactId>
+            <version>${spring-boot-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-sftp</artifactId>
+           	<version>4.3.11.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-starter-mail</artifactId>
+    		<version>${spring-boot-version}</version>
+    		<!-- <version>1.4.3.RELEASE</version> -->
+		</dependency>
+		
+		
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <version>${spring-boot-version}</version>
+        </dependency>
+
+        <!-- hot swapping, disable cache for template, enable live reload -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+            <version>${spring-boot-version}</version>
+        </dependency>
+   
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-version}</version>
+        </dependency>
+   
+    	<!-- Non SpringBoot dependencies  -->
+    
+    	<dependency>
+   			<groupId>io.springfox</groupId>
+   			<artifactId>springfox-swagger2</artifactId>
+   			<version>2.7.0</version>		
+		</dependency>
+
+		<dependency>
+   			<groupId>io.springfox</groupId>
+   			<artifactId>springfox-swagger-ui</artifactId>
+   			<version>2.7.0</version>		
+		</dependency>
+    
+    	<dependency>
+      		<groupId>org.hsqldb</groupId>
+  			<artifactId>hsqldb</artifactId>
+  			<scope>runtime</scope>
+  			<version>${hsqldb.version}</version>
+    	</dependency>
+    
+    	<dependency>
+      		<groupId>com.google.guava</groupId>
+  			<artifactId>guava</artifactId>
+  			<version>${guava-version}</version>
+    	</dependency>
+    
+    	<dependency> 
+    		<groupId>org.projectlombok</groupId> 
+    		<artifactId>lombok</artifactId> 
+    		<version>1.16.12</version> 
+    		<scope>compile</scope>
+    	</dependency>
+  
+    	<!-- This is the testing dependencie -->
+    	<dependency>
+      		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-test</artifactId>
+  			<version>${spring-boot-version}</version>
+  			<scope>test</scope>
+    	</dependency>
+ 
+ 		<dependency>
+      		<groupId>javax.transaction</groupId>
+      		<artifactId>jta</artifactId>
+      		<version>1.1</version>
+  		</dependency>
+  		<!-- 
+  		<dependency>
+      		<groupId>com.microsoft.sqlserver</groupId>
+      		<artifactId>sqljdbc4</artifactId>
+      		<version>${mssql-version}</version>
+  		</dependency>
+  		-->
+  		<dependency>
+    		<groupId>net.sourceforge.jtds</groupId>
+    		<artifactId>jtds</artifactId>
+    		<version>${jtds-version}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.apache.commons</groupId>
+   	 		<artifactId>commons-lang3</artifactId>
+    		<version>${common-utils-version}</version>
+		</dependency>	
+  		
+  		<dependency>
+    		<groupId>commons-io</groupId>
+    		<artifactId>commons-io</artifactId>
+    		<version>${common-io-uitils-version}</version>
+		</dependency>
+ 
+ 		<dependency>
+    		<groupId>javax</groupId>
+    		<artifactId>javaee-api</artifactId>
+    		<version>${java-ee-version}</version>
+    		<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.jcraft</groupId>
+    		<artifactId>jsch</artifactId>
+    		<version>0.1.54</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>joda-time</groupId>
+    		<artifactId>joda-time</artifactId>
+    		<version>${joda-time}</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.jcraft</groupId>
+    		<artifactId>jsch</artifactId>
+    		<version>${jsch-version}</version>
+		</dependency>
+
+        
+		<dependency>
+    		<groupId>org.aspectj</groupId>
+    		<artifactId>aspectjweaver</artifactId>
+    		<version>${aspectj}</version>
+		</dependency>
+
+        
+      </dependencies>
+
+  </dependencyManagement>
+  
+  <modules>
+ 	<module>bank-interface-logic</module>
+  	<module>bank-interface-ftpClient</module>
+    <module>bank-interface-communication</module>
+    <module>bank-interface-validation</module>
+  </modules>
+   
+</project>

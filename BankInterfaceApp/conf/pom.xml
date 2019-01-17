@@ -1,0 +1,153 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>za.co.pps</groupId>
+  <artifactId>conf</artifactId>
+  <version>0.0.1-SNAPSHOT</version>  
+  <name>BankInterfaceApp</name>
+  <packaging>pom</packaging>
+  
+  <parent>
+  	<groupId>za.co.pps</groupId>
+  	<artifactId>BankInterfaceApp</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  	<relativePath>../pom.xml</relativePath>
+  </parent>
+   
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <spring-boot-version>1.5.6.RELEASE</spring-boot-version>
+     <hsqldb.version>2.3.1</hsqldb.version>  
+     <mysql-version>5.1.13</mysql-version>
+     <guava-version>18.0</guava-version> 
+  </properties>
+  
+  <dependencyManagement>
+    <dependencies>
+
+  		<dependency>
+      		<groupId>org.springframework</groupId>
+  			<artifactId>spring-context-support</artifactId>
+       </dependency>
+   
+       <dependency>
+      		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-web</artifactId>
+  			<exclusions>
+  			<!--
+  				<exclusion>
+  					<groupId>ch.qos.logback</groupId>
+					<artifactId>logback-classic</artifactId>
+				</exclusion>
+			
+			 	<exclusion>
+                    	<groupId>org.springframework.boot</groupId>
+                    	<artifactId>spring-boot-starter-tomcat</artifactId>
+             	</exclusion>
+             -->  
+  		  	</exclusions>
+       </dependency>
+   
+   <!--  This is for running on an external tomcat  
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-juli</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    -->
+    
+   	   <dependency>
+      		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-data-jpa</artifactId>
+    		<exclusions>
+  				<exclusion>
+              		<groupId>javax.transaction</groupId>
+              		<artifactId>javax.transaction-api</artifactId>
+          		</exclusion>
+  			</exclusions>
+    	</dependency>
+    
+  
+    	<dependency>
+            <groupId>org.jboss.spec.javax.transaction</groupId>
+            <artifactId>jboss-transaction-api_1.2_spec</artifactId>
+            <version>1.0.0.Final</version>
+    	</dependency>
+    
+    	<dependency>
+    		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-actuator</artifactId>
+    	</dependency>
+    
+     	<dependency>
+    		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-security</artifactId>
+    	</dependency>
+    
+      	<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-tomcat</artifactId>
+    	</dependency>
+   
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql-version}</version>
+        </dependency>
+   
+    	<!-- Non SpringBoot dependencies  -->
+    
+    	<dependency>
+   			<groupId>io.springfox</groupId>
+   			<artifactId>springfox-swagger2</artifactId>
+   			<version>2.7.0</version>		
+		</dependency>
+
+		<dependency>
+   			<groupId>io.springfox</groupId>
+   			<artifactId>springfox-swagger-ui</artifactId>
+   			<version>2.7.0</version>		
+		</dependency>
+    
+    	<dependency>
+      		<groupId>org.hsqldb</groupId>
+  			<artifactId>hsqldb</artifactId>
+  			<scope>runtime</scope>
+  			<version>${hsqldb.version}</version>
+    	</dependency>
+    
+    	<dependency>
+      		<groupId>com.google.guava</groupId>
+  			<artifactId>guava</artifactId>
+  			<version>${guava-version}</version>
+    	</dependency>
+    
+    	<dependency> 
+    		<groupId>org.projectlombok</groupId> 
+    		<artifactId>lombok</artifactId> 
+    		<version>1.16.12</version> 
+    		<scope>compile</scope>
+    	</dependency>
+  
+    	<!-- This is the testing dependencie -->
+    	<dependency>
+      		<groupId>org.springframework.boot</groupId>
+  			<artifactId>spring-boot-starter-test</artifactId>
+  			<version>${spring-boot-version}</version>
+  			<scope>test</scope>
+    	</dependency>
+ 
+    	<dependency>
+      		<groupId>junit</groupId>
+      		<artifactId>junit</artifactId>
+      		<version>${junit-version}</version>
+      		<scope>test</scope>
+   		 </dependency>
+      
+      </dependencies>
+  </dependencyManagement>
+
+   
+</project>

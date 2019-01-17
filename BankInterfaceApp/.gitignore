@@ -1,0 +1,11 @@
+*/target/**
+.settings/**
+vscode/**
+.classpath
+.project
+.metadata
+.recommenders
+RemoteSystemsTempFiles
+bank-interface-logic/.classpath
+bank-interface-ftpClient/.classpath
+bank-interface-communication/.classpath

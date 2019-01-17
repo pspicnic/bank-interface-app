@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<h1 style="color:Blue;font-size: 40px;">File View : <span th:text="${fileStatus}"/></h1> 
+	<div th:if="${error}">
+    	<h2 color="red" th:text="${error}"/>
+	</div>
+
+	<div th:if="${ddFileContent != null}" > <!-- style= "vertical-align: middle;margin-left: auto; margin-right: auto;width:80%"> -->
+
+
+    	<table>
+    		<tr>
+				<td><h4 style="color:Blue;">DD Latest File Output : </h4></td> <td><h4 th:text="${ddFilename}"/></td>
+    		</tr>
+    	</table>
+    
+    	<table cellpadding="0px"  cellspacing="0px" th:object="${ddFileContent}" id="ddDisplayData" border="1">
+        	<tr th:each="row :${ddFileContent}">
+            	<td style="white-space: pre-wrap;" th:text="${row}"/>
+        	</tr>
+    	</table>
+	</div>
+
+	<div th:if="${ccFileContent != null}" ><!--style= "margin-left: auto; margin-right: auto;width:80%">-->
+      	<table>
+    		<tr>
+				<td><h4 style="color:Blue;">CC Latest File Output : </h4></td> <td><h4 th:text="${ccFilename}"/></td>
+    		</tr>
+    	</table>
+    
+    	<table cellpadding="0px"  cellspacing="0px" th:object="${ccFileContent}" id="ccDisplayData" border="1">
+        	<tr th:each="row :${ccFileContent}">
+            	<td style="white-space: pre-wrap;" th:text="${row}"/>
+        	</tr>
+    	</table>
+	</div>
+
+	<form action="#" th:action="@{/encryptFiles}" method="post">
+    	<input type="hidden" name="ddPath" id="ddPath" th:value="${ddFolderPath}"/>
+    	<input type="hidden" name="ddFilename" id="ddFilename" th:value="${ddFilename}"/>
+    	<input type="hidden" name="ccPath" id="ccFilePath" th:value="${ccFolderPath}"/>
+    	<input type="hidden" name="ccFilename" id="ccFilename" th:value="${ccFilename}"/>
+    	<p><input type="submit" value="Encrypt Files" /> </p>
+	</form>
+	
+	<form action="#" th:action="@{/sendFileToServer}" method="post">
+    	<input type="hidden" name="encryptedDD" id="encryptedDD" th:value="${encryptedDD}"/>
+    	<input type="hidden" name="encryptedCC" id="encryptedCC" th:value="${encryptedCC}"/>
+    	<p><input type="submit" value="Submit Files" /> </p>
+	</form>
+	
+	
+
+	</body>
+</html>
+
+

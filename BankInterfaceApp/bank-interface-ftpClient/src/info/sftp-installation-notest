@@ -1,0 +1,26 @@
+test#!/bin/bash
+# Process Nab Files
+
+if
+#sftp -oPORT=9022 -oIdentityFile=~/.ssh/id_rsa.pub -oPasswordAuthentication=no NOAK01AU@test-sftp.nabmarkets.com
+
+#--Decrypting file
+BankInterfaceTestKeys_[D_[D_[D_[D-keys.pub
+#gpg --output newFileName --decrypt 50669339_821d8f12-683e-4551-9fd9-151ff0b385ac_DirectEntryDD.asc.PROCESSED.ACK.pgp 
+
+#---Encrypting files 
+
+#gpg --armor --encrypt --recipient TEST-DIRECTLINK-to-NAB --sign --local-user "PPS Mutual" --output 821d8f12-683e-4551-9fd9-151f f0b385ac_DirectEntryDD.asc 821d8f12-683e-4551-9fd9-151ff0b385ac_DirectEntryDD.cs
+
+#------
+
+#Instructions to set up the ssh passphrase to the ssh-agent
+#: Copy the public key , we sent to NAB in the ~/.ssh folder
+#: start the ssh-agent
+#  = export all the variables you get from the response
+#: ssh-add ~/.ssh/YourPublicKeys 
+#	:This will ask for the passphrase	
+#	ps aux | grep 'ssh-agent'exit
+
+
+50670249_12c28550-d344-435b-9725-13f137d901b6_DirectEntryCC_encrypt_02.REJECTED.ACK.pgp
